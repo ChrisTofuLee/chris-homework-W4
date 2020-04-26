@@ -190,6 +190,7 @@ function constructGameOverInfo(event) {
     breaker.classList.add('hide');
     countDown.classList.add('hide');
     scoreboardPage.classList.remove('hide');
+    currentQuestionIndex = 0
     constructScoreboardPage(topScorerInitials, topScoresList);
 
 }
@@ -289,7 +290,7 @@ function runQA() {
     const question = questionsList[currentQuestionIndex].question
     const choices = questionsList[currentQuestionIndex].choices
     const answer = questionsList[currentQuestionIndex].answer
-    const qa = constructQuestionsPage(question, choices, answer);
+    constructQuestionsPage(question, choices, answer);
 }
 
 
