@@ -16,10 +16,7 @@
         <a class="navbar-brand text-danger" href="#">View Highscores</a>
         <div class = "nav justify-content-end" id="time"></div>
       </nav>
-    
-        <div class = "container hide" id = "questions">
-
-        </div>
+        
 
 
         <div class = "container" id = "start">
@@ -50,13 +47,19 @@
             </main>       
         </div>
 
+        <div class = "container hide" id = "questions">
+
+        </div>
+        <div class = "container hide" id="breaker">
+            <hr />
+            <div class = "text-secondary" id = "rightWrong"></div>
+        </div>
+
         <div class = "container hide" id = "scoreboard">
             <main>
             <h2 class = "py-3 pt-md-5 pb-md-4">Top Players Scoreboard</h2>
-            <div id="showScoreHere"></div>
-            <div class = "alert alert-dark" id="player">player 1 score</div>
-            <div class = "alert alert-dark" id="player">player 1 score</div>
-            <div class = "alert alert-dark" id="player">player 1 score</div>
+            <div id="showScoreHere"></div>           
+                  
             <div class = "py-4">
                 <button type="button" class="btn btn-info btn-sm mx-1" id="goBackBtn">Go Back</button>
                 <button type="button" class="btn btn-info btn-sm mx-1" id="clearScoreBtn">Clear Scores</button>
