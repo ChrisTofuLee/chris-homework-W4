@@ -35,7 +35,7 @@
         <div class = "container hide" id = "gameOver">
             <main>
             <h2 class = "py-3 pt-md-5 pb-md-4">That's all folks!</h2>
-            <div class = "pb-3">Your final score is ...</div>
+            <div class = "pb-3">Your final score is ... <span id="displayScore"></span></div>
             <form class="form-inline">
                 <div class="form-group mb-2">
                 <label for="formGroupExampleInput" class="sr-only">info</label>
@@ -45,7 +45,7 @@
                 <label for="initialsInput" class="sr-only">Initials</label>
                 <input type="text" class="form-control" id="initialsInput" placeholder="Initials">
                 </div>
-                <button type="submit" class="btn btn-info mb-2">Submit</button>
+                <button type="submit" class="btn btn-info mb-2" id="scoreSubmit">Submit</button>
             </form>   
             </main>       
         </div>
@@ -53,10 +53,13 @@
         <div class = "container hide" id = "scoreboard">
             <main>
             <h2 class = "py-3 pt-md-5 pb-md-4">Top Players Scoreboard</h2>
-            <div class = "alert alert-dark">player 1 score</div>
+            <div id="showScoreHere"></div>
+            <div class = "alert alert-dark" id="player">player 1 score</div>
+            <div class = "alert alert-dark" id="player">player 1 score</div>
+            <div class = "alert alert-dark" id="player">player 1 score</div>
             <div class = "py-4">
-                <button type="button" class="btn btn-info btn-sm mx-1">Go Back</button>
-                <button type="button" class="btn btn-info btn-sm mx-1">Clear Scores</button>
+                <button type="button" class="btn btn-info btn-sm mx-1" id="goBackBtn">Go Back</button>
+                <button type="button" class="btn btn-info btn-sm mx-1" id="clearScoreBtn">Clear Scores</button>
             </div> 
             </main>         
         </div>

@@ -158,22 +158,32 @@ const scoreboardInfo = {
 */
 
 const starterBtn = document.getElementById('startBtn')
+const scoreSubmit = document.getElementById('scoreSubmit')
+const goBackBtn = document.getElementById('goBackBtn')
+const clearScoreBtn = document.getElementById('clearScoreBtn')
 const startPage = document.getElementById('start')
 const gameOverPage = document.getElementById('gameOver')
 const questionsPage = document.getElementById('questions')
+const scoreboardPage = document.getElementById('scoreboard')
+const displayScore = document.getElementById('displayScore')
+const initialsInput = document.getElementById('initialsInput')
 const questionsList = data.questions
 const titleInfo = data.titleInfo[0]
 const gameOverInfo = data.gameOverInfo
 const scoreboardInfo = data.scoreboardInfo
 
 let currentQuestionIndex = 0;
+let currentScore = 0;
+const topScorerInitials = [];
+const topScoresList = [];
 
+//add display of right or wrong pop up 
 
 
 
 //timer functionalities
 const countDown = document.getElementById("time");
-let timeLeft = 5;
+let timeLeft = 66;
 let timerInterval;
 
 function tickTock() {
@@ -188,6 +198,7 @@ function tickTock() {
 
 function setTime() {
     startPage.classList.add('hide');
+    timeLeft = 66;
 
     runQA()
     timerInterval = setInterval(tickTock, 1000);
@@ -211,25 +222,20 @@ function constructTitle(titleInfo) {
     
 }
 //(data, gameOverInfo) within the function to target that element not data.gameOverInfo 
-function constructGameOverInfo(gameOverInfo) {
-    const titleEl = document.createElement('h2');
-    const scoreEl = document.createElement('div');
+function constructGameOverInfo(event) {
 
-    gameOverPage.classList.remove('hide');
+    event.preventDefault();
+    if (initialsInput === "") {
+        return;
+    }
+    topScorerInitials.push(initialsInput);
+    topScoresList.push(topScoresList);
+    initialsInput.value = ""
+    gameOverPage.classList.add('hide');
+    scoreboardPage.classList.remove('hide')
 
-    /* titleEl.textContent = gameOverInfo.title;
-    scoreEl.textContent = "Your final score is..." + gameOverInfo.score;
 
 
-    titleEl.setAttribute('class', "py-3 pt-md-5 pb-md-4");
-    scoreEl.setAttribute('class', 'pb-3')
-*/
-
-    /*score: "",
-    infoBox: "Enter initials here please",
-    initialsBox: "Initials",
-    submitButton: "Submit"*/
-   
 }
 
 
@@ -245,11 +251,16 @@ function clickedAnswer(event) {
     if (event.target.matches('button')) {
         const id = event.target.id
         console.log(id);
+        console.log(currentScore);
+        if (id == answer) {
+            currentScore += 10
+            console.log("newscore " + currentScore)
+        }
         questionChecker()
     }
 }
-//create Question pages
-function constructQuestionsPage(question, choices) {
+//create Question pages + score display
+function constructQuestionsPage(question, choices, answer) {
     if (currentQuestionIndex < 5) {
     const h2 = document.createElement('h2')
     h2.setAttribute('class', 'py-3 pt-md-5 pb-md-4')
@@ -279,7 +290,27 @@ function constructQuestionsPage(question, choices) {
     questionsPage.appendChild(choicesDiv)
     }else {
         //questionsPage.classList.add('hide');
-        gameOverPage.classList.remove('hide')
+        gameOverPage.classList.remove('hide');
+        const finalScore = currentScore + timeLeft
+        displayScore.textContent = finalScore
+        clearInterval(timerInterval)
+        
+    }
+
+    function clickedAnswer(event) {
+        console.log(event)
+        if (event.target.matches('button')) {
+            const id = event.target.id
+            console.log(id);
+            console.log(currentScore);
+            if (id == answer) {
+                currentScore += 10
+                console.log("newscore " + currentScore)
+            }else {
+                timeLeft -= 15
+            }
+            questionChecker()
+        }
     }
     
 }
@@ -289,7 +320,8 @@ function runQA() {
 
     const question = questionsList[currentQuestionIndex].question
     const choices = questionsList[currentQuestionIndex].choices
-    const qa = constructQuestionsPage(question, choices);
+    const answer = questionsList[currentQuestionIndex].answer
+    const qa = constructQuestionsPage(question, choices, answer);
 }
 
 //questions.forEach(constructQuestionsPage)
@@ -311,3 +343,5 @@ function constructScoreboardPage(scoreboardInfo) {
 
 
 starterBtn.addEventListener('click', setTime)
+scoreSubmit.addEventListener('click', constructGameOverInfo)
+
