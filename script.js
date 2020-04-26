@@ -135,7 +135,7 @@ let theFinalScore = 0
 
 //timer functionalities
 const countDown = document.getElementById("time");
-let timeLeft = 66;
+let timeLeft = 60;
 let timerInterval;
 
 function tickTock() {
@@ -144,14 +144,19 @@ function tickTock() {
     
     if(timeLeft === 0) {
         clearInterval(timerInterval);
-        gameOver();
+        currentQuestionIndex = 5
+        questionsPage.classList.add('hide');
+        questionsPage.innerHTML = ""
+        
+        runQA();
     }
 };
 
 function setTime() {
     startPage.classList.add('hide');
-    timeLeft = 66;
+    timeLeft = 60;
 
+    questionsPage.classList.remove('hide');
     runQA()
     timerInterval = setInterval(tickTock, 1000);
 };
@@ -285,7 +290,7 @@ function constructQuestionsPage(question, choices, answer) {
 // }
 
 function runQA() {
-    questionsPage.classList.remove('hide');
+    
 
     const question = questionsList[currentQuestionIndex].question
     const choices = questionsList[currentQuestionIndex].choices
@@ -300,7 +305,7 @@ function runQA() {
 function goBackInTime() {
     scoreboardPage.classList.add('hide');
     startPage.classList.remove('hide');
-    timeLeft = 66
+    timeLeft = 60
     showScoreHere.innerHTML = ""
     console.log("the score array" + topScoresList)
     countDown.classList.remove('hide');
