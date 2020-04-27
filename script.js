@@ -323,6 +323,8 @@ function clearTheScore() {
 
 }
 function viewHighScoreFunc () {
+    
+    showScoreHere.innerHTML = ""
     gameOverPage.classList.add('hide');
     breaker.classList.add('hide');
     countDown.classList.add('hide');
