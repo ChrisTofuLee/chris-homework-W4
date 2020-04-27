@@ -21,34 +21,34 @@ const data = {
             answer: 3,
         },
         {
-            question: "What does CSS stand for?",
+            question: "What is event bubbling?",
             choices: [
-                "Celular Styling System",
-                "Cascading Style Sheet",
-                "Choice of Style Sheet",
-                "Character Styling Sheet"
+                "When a water boils and small bubbles appear",
+                "When a function is called from an event handler",
+                "When an event handler in the object's parent is triggered",
+                "When you book too many events within the week and there is too many to go to"
             ],
-            answer: 1,
+            answer: 2,
         },
         {
-            question: "What does CSS stand for?",
+            question: "What are closures in JavaScript?",
             choices: [
-                "Celular Styling System",
-                "Cascading Style Sheet",
-                "Choice of Style Sheet",
-                "Character Styling Sheet"
+                "When the function folds itself up",
+                "The plethora of data that is stored in the coded script",
+                "Combination of a function bundled with references to it's surrounding state",
+                "When a person stops having feelings for another person after breaking up"
             ],
-            answer: 1,
+            answer: 2,
         },
         {
-            question: "What does CSS stand for?",
+            question: "What is a callback function in JavaScript?",
             choices: [
-                "Celular Styling System",
-                "Cascading Style Sheet",
-                "Choice of Style Sheet",
-                "Character Styling Sheet"
+                "A function passed into another function as an argument",
+                "When you call a function from an array",
+                "It's the function when you call it back ",
+                "It's not when you want to access the function when you want to"
             ],
-            answer: 1,
+            answer: 0,
         },
         {
             question: "What does CSS stand for?",
