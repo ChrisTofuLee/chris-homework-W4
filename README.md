@@ -1,12 +1,13 @@
 # The Coding Quiz
 
-In line with the request, a quiz has been created based on certain criteria that is fully interactive and functional. Please use the link below to access the password generator.
+In line with the request, a timed quiz has been created based on certain criteria so that the user can text themselves along with peers and compare their scores. Please use the link below to access the password generator.
+
 
 ## Functionalities
 
 For the quiz the following criteria have been met to be able to run through the questions and different pages:
 
-- 
+- when you click on the start button, the questions page will appear with a question and 4 options to select from (see image 1: the questions page)
 
 
 

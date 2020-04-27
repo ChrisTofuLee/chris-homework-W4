@@ -133,6 +133,7 @@ function setTime() {
     timeLeft = 60;
 
     questionsPage.classList.remove('hide');
+    countDown.classList.remove('hide');
     runQA()
     timerInterval = setInterval(tickTock, 1000);
 };
@@ -266,9 +267,10 @@ function goBackInTime() {
     scoreboardPage.classList.add('hide');
     startPage.classList.remove('hide');
     timeLeft = 60
+    currentScore = 0
     showScoreHere.innerHTML = ""
 
-    countDown.classList.remove('hide');
+    
 
 }
 
