@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    
+</head>
+<body>
+
+
+
+    <div>
+        <div class="hide" id="qa">
+            
+        </div>
+        <button id="start-quiz"> Start Queiz</button>
+
+    </div>
+
+
+    <script>
+
+        const sstartQuizBtn = document.getElementById('start-quiz')
+        const qaDiv = document.getElementById('qa')
+    
+       const questionsTest = [
+    {
+        question1: "What does CSS stand for?",
+        choices1: [
+            "Cell Styling System",
+            "Cascading Style Sheet",
+            "Choice of Style Sheet",
+            "Character Styling Sheet"
+        ],
+        answer1: 1,
+    },
+    
+]
+function constructQuestionsPage(question1, choices1) {
+    const Div = document.createElement('div')
+    const h2 = document.createElement('h2')
+    h2.setAttribute('class', 'py-3 pt-md-5 pb-md-4')
+    h2.textContent = question1
+    console.log("check this" + question1)
+
+    const ul = document.createElement('ul')
+
+    choices1.forEach(function(option) {
+        const li = document.createElement('li')
+        li.textContent = option
+        ul.appendChild(li)
+
+    })
+    
+    questionsPage.appendChild(h2)
+   
+}
+function displayQA() {
+    const qa = constructQuestionsPage("What does CSS stand for?", [
+            "Cell Styling System",
+            "Cascading Style Sheet",
+            "Choice of Style Sheet",
+            "Character Styling Sheet"
+        ])
+}
+
+startQuizBtn.addEventListener('click', displayQA)
+</body>
+</html>
