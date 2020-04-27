@@ -117,6 +117,7 @@ const initialsInput = document.getElementById('initialsInput')
 const breaker = document.getElementById('breaker')
 const rightWrong = document.getElementById('rightWrong')
 const showScoreHere = document.getElementById('showScoreHere')
+const viewHighScore = document.getElementById('viewHighScore')
 const questionsList = data.questions
 const titleInfo = data.titleInfo[0]
 const gameOverInfo = data.gameOverInfo
@@ -125,8 +126,8 @@ const scoreboardInfo = data.scoreboardInfo
 let ansValidation = ""
 let currentQuestionIndex = 0;
 let currentScore = 0;
-const topScorerInitials = ["ttt", "rrr", "www"];
-const topScoresList = [12, 14, 111];
+const topScorerInitials = [];
+const topScoresList = [];
 let theFinalScore = 0
 
 //add display of right or wrong pop up 
@@ -330,7 +331,7 @@ function constructScoreboardPage(person, theScore) {
         pDiv.setAttribute('id', index)
         let number = index + 1
         // currentInitial = initials
-        v = theScore[index]
+        currentScore = theScore[index]
         pDiv.textContent = number + ". " + initials + " scored " + currentScore
 
         showScoreHere.appendChild(pDiv)
@@ -354,12 +355,42 @@ function constructScoreboardPage(person, theScore) {
 //             pDiv[index].textContent += " scored " + currentScoreNum
 //         })
 // }
+// function clearScorer(scorer) {
+//     scorer = []
+// }
+// function clearInitials(initials) {
+//     initials = []
+// }
 
-function clearTheScore() {}
+function clearTheScore() {
+    // clearScorer(topScorerInitials);
+    // clearInitials(topScoresList);
+    topScorerInitials.length = 0
+    topScoresList.length = 0
+    showScoreHere.innerHTML = ""
+    console.log(topScorerInitials)
+    console.log(topScoresList)
 
+
+}
+function viewHighScoreFunc () {
+    gameOverPage.classList.add('hide');
+    breaker.classList.add('hide');
+    countDown.classList.add('hide');
+    questionsPage.classList.add('hide');
+    startPage.classList.add('hide');
+    questionsPage.innerHTML = ""
+    currentQuestionIndex = 0
+    timeLeft = 60
+    clearInterval(timerInterval);
+    constructScoreboardPage(topScorerInitials, topScoresList)
+
+    scoreboardPage.classList.remove('hide');
+}
 
 goBackBtn.addEventListener('click', goBackInTime)
 clearScoreBtn.addEventListener('click', clearTheScore)
 starterBtn.addEventListener('click', setTime)
 scoreSubmit.addEventListener('click', constructGameOverInfo)
+viewHighScore.addEventListener('click', viewHighScoreFunc)
 
