@@ -81,28 +81,6 @@ const data = {
             clearButton: "Clear Score",
     },
 }
-/*
-
-const titleInfo = {
-        title: "The Coding Quiz",
-        theBody: "Test your coding knowledge with the following questions within the time limit. Think twice before clicking though as incorrect answers will penalize your score as well as the time you have left by 10 seconds!",
-        toStart: "Start Quiz",
-}
-const gameOverInfo = {
-        title: "That's All Folks!",
-        score: "",
-        infoBox: "Enter initials here please",
-        initialsBox: "Initials",
-        submitButton: "Submit",
-}
-
-const scoreboardInfo = {
-        title: "Top Players Scoreboard",
-        score: "",
-        backButton: "Go Back",
-        clearButton: "Clear Score",
-}
-*/
 
 const starterBtn = document.getElementById('startBtn')
 const scoreSubmit = document.getElementById('scoreSubmit')
@@ -129,9 +107,6 @@ let currentScore = 0;
 const topScorerInitials = [];
 const topScoresList = [];
 let theFinalScore = 0
-
-//add display of right or wrong pop up 
-
 
 
 //timer functionalities
@@ -191,7 +166,7 @@ function constructGameOverInfo(event) {
     topScorerInitials.push(topScoreInitialTrim);
     topScoresList.push(theFinalScore);
     initialsInput.value = ""
-    console.log('this is the initials' + topScorerInitials[0])
+  
     gameOverPage.classList.add('hide');
     breaker.classList.add('hide');
     countDown.classList.add('hide');
@@ -204,7 +179,7 @@ function constructGameOverInfo(event) {
 
 function questionChecker() {
     currentQuestionIndex++
-    console.log(currentQuestionIndex);
+
     questionsPage.innerHTML = ""
     runQA()
 }
@@ -250,19 +225,18 @@ function constructQuestionsPage(question, choices, answer) {
     }
 
     function clickedAnswer(event) {
-        console.log(event)
+
         
 
         if (event.target.matches('button')) {
             const id = event.target.id
-            console.log(id);
-            console.log(currentScore);
+
             breaker.classList.remove('hide');
             if (id == answer) {
                 currentScore += 10
                 
                 ansValidation = "Correct!"
-                console.log("newscore " + ansValidation)
+
             }else {
                 timeLeft -= 15
                 ansValidation = "Wrong!"
@@ -273,22 +247,7 @@ function constructQuestionsPage(question, choices, answer) {
     }
     
 }
-// 
-// function clickedAnswer(event) {
-//     console.log(event)
-//     if (event.target.matches('button')) {
-//         const id = event.target.id
-//         console.log(id);
-//         console.log(currentScore);
-        
-//         if (id == answer) {
-//             currentScore += 10
-//             console.log("newscore " + currentScore)
-            
-//         }
-//         questionChecker()
-//     }
-// }
+
 
 function runQA() {
     
@@ -308,7 +267,7 @@ function goBackInTime() {
     startPage.classList.remove('hide');
     timeLeft = 60
     showScoreHere.innerHTML = ""
-    console.log("the score array" + topScoresList)
+
     countDown.classList.remove('hide');
 
 }
@@ -319,11 +278,11 @@ function goBackInTime() {
 
 //create highscores page
 function constructScoreboardPage(person, theScore) {
-    console.log(person)
+
     //sort array to highest first
     //topScoresList.sort(function(a, b){return b-a})
     //topScorerInitials
-    console.log("assorted array" + topScoresList)
+
 
     person.forEach(function(initials, index) {
         const pDiv = document.createElement('div')
@@ -335,15 +294,6 @@ function constructScoreboardPage(person, theScore) {
         pDiv.textContent = number + ". " + initials + " scored " + currentScore
 
         showScoreHere.appendChild(pDiv)
-        
-  
-
-        // theScore.forEach(function(scoreNumb, index) {
-        //     console.log(scoreNumb + " this is the scorenumb")
-        //     currentScoreNum = scoreNumb
-            
-        //     pDiv.textContent += " scored " + currentScoreNum
-        // })
 
     })
     
@@ -368,8 +318,7 @@ function clearTheScore() {
     topScorerInitials.length = 0
     topScoresList.length = 0
     showScoreHere.innerHTML = ""
-    console.log(topScorerInitials)
-    console.log(topScoresList)
+
 
 
 }
@@ -386,6 +335,7 @@ function viewHighScoreFunc () {
     constructScoreboardPage(topScorerInitials, topScoresList)
 
     scoreboardPage.classList.remove('hide');
+
 }
 
 goBackBtn.addEventListener('click', goBackInTime)
