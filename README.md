@@ -7,18 +7,28 @@ In line with the request, a timed quiz has been created based on certain criteri
 
 For the quiz the following criteria have been met to be able to run through the questions and different pages:
 
-- when you click on the start button, the questions page will appear with a question and 4 options to select from (see image 1: the questions page)
+- when you click on the start button, the questions page will appear with a question and 4 options to select from (see image 1: the questions page) with a timer countdown.
+- Once an answer is clicked the next question will load with a statement verifying if it was correct. (see image 2: answer verification)
+- if answer was correct score will be increased by 10, if wrong the timer left will decrease by 10 seconds.
+- after the final question or if the timer runs out the game over page will load with your score asking for your initials (see image 3: game over page). the score is the answers you got correct + the time left.
+- once you submit your initials the high scores page will load (if no initials entered an error will pop up). The high score page will show any previous scorers scores as well as your new score (see image 4: high scores page)
+- on the scores page if you press go back it will take you back to the first screen (see image 5: starting screen), if clear score then the scores will be deleted.
+- if you click the view highscores at any time it will jump straight to the high scores page.
 
+Access the quiz here: [Quiz URL](https://christofulee.github.io/chris-homework-W4/)
 
+image 3: game over page
+### image 1: the questions page
+![image 1: the questions page](./Assets/questionpure.png)
 
-In accordance to the request, a password generator has been created to provide randomly generated passwords based on the criteria provided by the user. Please use the link below to access the password generator
+### image 2: answer verification
+![image 2: answer verification](./Assets/question.png)
 
-Functionalities
-For the password generator the following criteria have been met to be able to create a strong password based on user input:
+### image 3: game over page
+![image 3: game over page](./Assets/gameover.png)
 
-When 'generate password' is clicked, the user is prompted with several password criteria (see image 1: initial pop up)
-if the minimum requirements are not met or unexpected errors (such as entering a letter when asking for a number), the user will be prompted to ask try again (see image 2: error example)
-The minimum requirements include a password length of 8-128 and at least 1 security criteria selected
-The security criteria prompted will be: lowercase, uppercase, number, and special characters (see image 3: password criteria example)
-once all 5 prompts are answered then a final prompt containing the generated password will appear that meets the previously selected criteria (see image 4: password example)
-Access the Password Generator here: Password Generator URL
+### image 4: high scores page
+![image 4: high scores page](./Assets/Scoreboard.png)
+
+### image 5: starting screen
+![image 5: starting screen](./Assets/intro.png)
